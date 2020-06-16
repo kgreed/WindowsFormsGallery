@@ -28,9 +28,7 @@ namespace WindowsFormsGallery
             Image im1 = Image.FromFile("c:\\Images\\BMW.jpg");
             Image im2 = Image.FromFile("c:\\Images\\Ford.jpg");
             Image im3 = Image.FromFile("c:\\Images\\MercedecBenz.jpg");
-            //Image im4 = Image.FromFile("c:\\Images\\AnneDodsworth.jpg");
-            //Image im5 = Image.FromFile("c:\\Images\\HannaMoos.jpg");
-            //Image im6 = Image.FromFile("c:\\Images\\JanetLeverling.jpg");
+           
 
             gc.Gallery.ItemImageLayout = ImageLayoutMode.ZoomInside;
             gc.Gallery.ImageSize = new Size(120, 90);
@@ -38,25 +36,22 @@ namespace WindowsFormsGallery
 
             GalleryItemGroup group1 = new GalleryItemGroup {Caption = "Cars"};
             gc.Gallery.Groups.Add(group1);
-
-            //GalleryItemGroup group2 = new GalleryItemGroup {Caption = "People"};
-            //gc.Gallery.Groups.Add(group2);
+ 
 
             group1.Items.Add(new GalleryItem(im1, "BMW", ""));
             group1.Items.Add(new GalleryItem(im2, "Ford", ""));
             group1.Items.Add(new GalleryItem(im3, "Mercedec-Benz", ""));
 
-            //group2.Items.Add(new GalleryItem(im4, "Anne Dodsworth", ""));
-            //group2.Items.Add(new GalleryItem(im5, "Hanna Moos", ""));
-            //group2.Items.Add(new GalleryItem(im6, "Janet Leverling", ""));
+          
             var options = gc.Gallery.ContextButtonOptions;
             options.DisplayArea = ContextItemDisplayArea.Item;
 
-            var ci = new ContextItem
+            var cb = new ContextButton
             {
-                Name = "Move", Alignment = ContextItemAlignment.Center, Visibility = ContextItemVisibility.Visible
+                Name = "Move", Alignment = ContextItemAlignment.Center, Visibility = ContextItemVisibility.Visible, Caption = "Moooov"
             };
-            gc.Gallery.ContextButtons.Add(ci);
+            gc.Gallery.ContextButtons.Add(cb);
+            gc.Gallery.RefreshGallery();
         }
     }
 }
